@@ -1,4 +1,4 @@
-package com.orhanararat.petclinicspringframework;
+package com.orhanararat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
