@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Person {
+public class Person extends BaseEntity{
 
     // == fields ==
     private String firstName;
