@@ -1,11 +1,10 @@
 package com.orhanararat.services;
 
 import com.orhanararat.model.Vet;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.Set;
 
-public interface VetService extends CrudRepository<Vet, Long> {
+public interface VetService extends CrudService<Vet, Long> {
 
 
 
