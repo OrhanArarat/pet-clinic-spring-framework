@@ -1,14 +1,13 @@
 package com.orhanararat.services.map;
 
 import com.orhanararat.model.Vet;
-import com.orhanararat.services.CrudService;
 import com.orhanararat.services.VetService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudService<Vet,Long> {
+public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService{
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
