@@ -8,6 +8,8 @@ public class ViewNames {
 
     public static final String VETS_INDEX = "vets/index";
 
+    public static final String OWNERS_INDEX = "owners/index";
+
     private static ViewNames ourInstance = new ViewNames();
 
     public static ViewNames getInstance() {
