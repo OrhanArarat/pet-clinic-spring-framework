@@ -2,9 +2,11 @@ package com.orhanararat.services.map;
 
 import com.orhanararat.model.Owner;
 import com.orhanararat.services.CrudService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements CrudService<Owner,Long> {
 
     @Override
