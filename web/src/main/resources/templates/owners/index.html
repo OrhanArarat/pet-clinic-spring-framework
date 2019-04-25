@@ -9,10 +9,21 @@
 <h1 th:text="'List of Owners'">List of Owners</h1>
 
 <table>
+    <thead>
     <tr>
+        <th th:text="'ID'">Id</th>
         <th th:text="'First Name'">First Name</th>
         <th th:text="'Last Name'">Last Name</th>
     </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="owner : ${owners}">
+        <td th:text="${owner.getId()}">ID</td>
+        <td th:text="${owner.getFirstName()}">First Name</td>
+        <td th:text="${owner.getLastName()}">Last Name</td>
+    </tr>
+    </tbody>
 </table>
 
 </body>

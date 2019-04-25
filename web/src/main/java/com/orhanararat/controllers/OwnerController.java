@@ -1,5 +1,6 @@
 package com.orhanararat.controllers;
 
+import com.orhanararat.model.Owner;
 import com.orhanararat.services.OwnerService;
 import com.orhanararat.util.Mappings;
 import com.orhanararat.util.ViewNames;
@@ -8,11 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Set;
+
 @Controller
 public class OwnerController {
 
     // == fields ==
-    private OwnerService ownerService;
+    private final OwnerService ownerService;
 
     @Autowired
     public OwnerController(OwnerService ownerService) {
@@ -20,7 +23,8 @@ public class OwnerController {
     }
     @GetMapping(Mappings.OWNERS_INDEX)
     public String index(Model model){
-        model.addAllAttributes(ownerService.findAll());
+        Set<Owner> owners = ownerService.findAll();
+        model.addAttribute("owners",owners);
         return ViewNames.OWNERS_INDEX;
     }
 

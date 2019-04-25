@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class VetController {
 
-    private VetService vetService;
+    private final VetService vetService;
 
     @Autowired
     public VetController(VetService vetService) {
