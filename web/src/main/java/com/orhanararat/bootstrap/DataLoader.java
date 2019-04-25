@@ -4,8 +4,6 @@ import com.orhanararat.model.Owner;
 import com.orhanararat.model.Vet;
 import com.orhanararat.services.OwnerService;
 import com.orhanararat.services.VetService;
-import com.orhanararat.services.map.OwnerServiceMap;
-import com.orhanararat.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -19,13 +17,9 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
 
     // == constructor ==
-
-    public DataLoader() {
-
-        ownerService = new OwnerServiceMap();
-
-        vetService = new VetServiceMap();
-
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
