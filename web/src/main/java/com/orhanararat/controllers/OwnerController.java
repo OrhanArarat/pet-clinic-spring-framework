@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 @Controller
@@ -23,7 +26,9 @@ public class OwnerController {
     }
     @GetMapping(Mappings.OWNERS_INDEX)
     public String index(Model model){
-        Set<Owner> owners = ownerService.findAll();
+        Set<Owner> ownerSet = ownerService.findAll();
+        List<Owner> owners = new ArrayList<>(ownerSet);
+        Collections.sort(owners,(o1, o2) -> o1.getId().compareTo(o2.getId()));
         model.addAttribute("owners",owners);
         return ViewNames.OWNERS_INDEX;
     }
