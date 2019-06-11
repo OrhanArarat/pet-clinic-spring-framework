@@ -3,6 +3,7 @@ package com.orhanararat.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -13,5 +14,5 @@ public class Owner extends Person {
     private String city;
     private String telephone;
 
-    private Set<Pet> pets;
+    private Set<Pet> pets = new HashSet<>();
 }
