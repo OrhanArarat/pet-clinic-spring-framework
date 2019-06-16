@@ -1,10 +1,7 @@
 package com.orhanararat.bootstrap;
 
 import com.orhanararat.model.*;
-import com.orhanararat.services.OwnerService;
-import com.orhanararat.services.PetTypeService;
-import com.orhanararat.services.SpecialtyService;
-import com.orhanararat.services.VetService;
+import com.orhanararat.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -23,14 +20,17 @@ public class DataLoader implements CommandLineRunner {
 
     private final SpecialtyService specialtyService;
 
+    private final VisitService visitService;
+
     // == constructor ==
 
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -99,6 +99,14 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(fionasCat);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionasCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Test Visit");
+
+        visitService.save(catVisit);
+
 
         System.out.println("Loaded Owners............");
 
