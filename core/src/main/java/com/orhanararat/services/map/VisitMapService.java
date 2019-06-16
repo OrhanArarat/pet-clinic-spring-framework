@@ -2,9 +2,10 @@ package com.orhanararat.services.map;
 
 import com.orhanararat.model.Visit;
 import com.orhanararat.services.VisitService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class VisitMapService extends AbstractMapService<Visit,Long> implements VisitService {
     @Override
     public Set<Visit> findAll() {
@@ -23,6 +24,12 @@ public class VisitMapService extends AbstractMapService<Visit,Long> implements V
 
     @Override
     public Visit save(Visit object) {
+
+        if (object.getPet()== null || object.getPet().getOwner()== null || object.getPet().getId()==null
+            || object.getPet().getOwner().getId()==null){
+            throw new RuntimeException("Invalid Visit");
+        }
+
         return super.save(object);
     }
 
