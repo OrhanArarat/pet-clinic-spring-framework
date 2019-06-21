@@ -16,7 +16,7 @@ public class VetSDJpaService implements VetService {
     // == fields ==
     private final VetRepository vetRepository;
 
-    // == consructor ==
+    // == constructor ==
     public VetSDJpaService(VetRepository vetRepository) {
         this.vetRepository = vetRepository;
     }
